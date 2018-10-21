@@ -27,18 +27,27 @@ var answers = ["false", "true", "false", "true", "false", "true", "true", "false
 
 
 function gameOver(){
-    $("#maincontent").html("");
-    winsText = $("<p>");
-    lossesText = $("<p>");
-    noAnswersText = $("<p>");
+    var newDiv = $("<div>")
+    newDiv.addClass("endgamebox")
+    
+    $("#questionwrapper").html("");
+    
+    var winsText = $("<p>");
+    var lossesText = $("<p>");
+    var noAnswersText = $("<p>");
+
+    winsText.addClass("wins")
+    lossesText.addClass("losses")
+    noAnswersText.addClass("noanswer")
 
     winsText.text("Correct Answers: " + wins);
     lossesText.text("Incorrect Answers: " + losses);
     noAnswersText.text("Unanswered Questions: " + noAnswers);
 
-    $("#maincontent").append(winsText);
-    $("#maincontent").append(lossesText);
-    $("#maincontent").append(noAnswersText);
+    newDiv.append(winsText);
+    newDiv.append(lossesText);
+    newDiv.append(noAnswersText);
+    $("#questionwrapper").append(newDiv)
 }
 
 
